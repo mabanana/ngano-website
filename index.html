@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Title -->
+    <title id="page-title">
+      Coffee Shop Tailwind CSS Template | Preline UI, crafted with Tailwind CSS
+    </title>
+    <script type="module" src="main.js"></script>
+    <style>
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes gradient {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .float {
+        animation: float 6s ease-in-out infinite;
+      }
+      .float-delay {
+        animation: float 6s ease-in-out infinite 3s;
+      }
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      .animated-gradient {
+        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .scroll-smooth {
+        scroll-behavior: smooth;
+      }
+      .services-hover {
+        transition: transform 0.3s ease;
+      }
+      .services-hover:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../../favicon.ico" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme Check and Update -->
+    <script>
+      const html = document.querySelector("html");
+      const isLightOrAuto =
+        localStorage.getItem("hs_theme") === "light" ||
+        (localStorage.getItem("hs_theme") === "auto" &&
+          !window.matchMedia("(prefers-color-scheme: dark)").matches);
+      const isDarkOrAuto =
+        localStorage.getItem("hs_theme") === "dark" ||
+        (localStorage.getItem("hs_theme") === "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+      if (isLightOrAuto && html.classList.contains("dark"))
+        html.classList.remove("dark");
+      else if (isDarkOrAuto && html.classList.contains("light"))
+        html.classList.remove("light");
+      else if (isDarkOrAuto && !html.classList.contains("dark"))
+        html.classList.add("dark");
+      else if (isLightOrAuto && !html.classList.contains("light"))
+        html.classList.add("light");
+    </script>
+
+    <!-- CSS HS -->
+    <link
+      rel="stylesheet"
+      href="https://preline.co/assets/css/main.css?v=3.0.1"
+    />
+  </head>
+
+  <body class="dark:bg-neutral-900">
+    <!-- ========== HEADER ========== -->
+    <header
+      id="header"
+      class="flex flex-wrap lg:justify-start lg:flex-nowrap z-50 w-full py-7"
+    >
+      <nav
+        class="px-4 sm:px-6 lg:px-8 bg-transparent relative w-full flex flex-wrap md:flex-nowrap basis-full items-center justify-between py-2 ps-5 pe-2 md:py-0 mx-2 lg:mx-auto"
+      >
+        <div class="flex items-center">
+          <!-- Logo -->
+          <a
+            class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
+            href="index.html"
+            aria-label="Preline"
+          >
+            <h1 id="business-name" class="text-black">Business Name</h1>
+          </a>
+          <!-- End Logo -->
+        </div>
+
+        <!-- Collapse -->
+        <div
+          id="hs-navbar-floating-dark"
+          class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
+          aria-labelledby="hs-navbar-floating-dark-collapse"
+        >
+          <div
+            class="flex flex-col md:flex-row md:items-center md:justify-end gap-y-3 py-2 md:py-0 md:ps-7"
+          >
+            <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-black hover:text-neutral-700 focus:outline-hidden focus:text-neutral-700"
+              href="index.html"
+              aria-current="page"
+              >Home</a
+            >
+            <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-black hover:text-neutral-700 focus:outline-hidden focus:text-neutral-700"
+              href="#about-us"
+              >About Us</a
+            >
+            <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-black hover:text-neutral-700 focus:outline-hidden focus:text-neutral-700"
+              href="#services"
+              >Services</a
+            >
+            <a
+              class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-black hover:text-neutral-700 focus:outline-hidden focus:text-neutral-700"
+              href="#contact-us"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+        <!-- End Collapse -->
+      </nav>
+    </header>
+    <!-- ========== END HEADER ========== -->
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content">
+      <!-- Hero -->
+      <div class="px-4 sm:px-6 lg:px-8 pb-10 fade-in-up">
+        <div
+          class="h-120 md:h-[80dvh] flex flex-col bg-[url('https://images.unsplash.com/photo-1462917882517-e150004895fa?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat rounded-2xl"
+        >
+          <div class="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10">
+            <h1 id="tagline" class="text-xl md:text-3xl lg:text-5xl text-white">
+              Bringing Art to everything
+            </h1>
+          </div>
+        </div>
+      </div>
+      <!-- End Hero -->
+
+      <!-- About Us -->
+      <div
+        id="about-us"
+        class="py-10 md:py-16 lg:py-20 bg-linear-to-b from-orange-100 to-white"
+      >
+        <div class="px-4 sm:px-6 lg:px-8">
+          <!-- Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 md:items-center">
+            <div
+              class="relative h-80 md:h-150 bg-gray-100 rounded-2xl dark:bg-neutral-800"
+            >
+              <img
+                class="absolute inset-0 size-full object-cover rounded-2xl"
+                src="https://images.unsplash.com/photo-1507914464562-6ff4ac29692f?q=80&w=768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Testimonials Image"
+              />
+            </div>
+            <!-- End Col -->
+
+            <div class="pt-10 md:p-10">
+              <blockquote class="max-w-4xl mx-auto">
+                <p class="mb-6 md:text-lg">
+                  A Family Tradition of Rich, Aromatic Coffee
+                </p>
+
+                <p
+                  id="about-text"
+                  class="text-xl sm:text-2xl lg:text-3xl lg:leading-normal text-gray-800 dark:text-neutral-200"
+                >
+                  Coffee has the power to connect generations – whether it's
+                  learning grandma's brewing techniques and trying to perfect
+                  them just like her or the intense memories triggered by the
+                  rich flavors and aromas of our favorite coffee blends.
+                </p>
+              </blockquote>
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Grid -->
+        </div>
+      </div>
+      <!-- End About Us -->
+
+      <!-- Services -->
+      <div
+        class="py-15 lg:py-24 mx-auto bg-linear-to-b from-blue-100 to-white"
+        id="services"
+      >
+        <div
+          class="px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 md:items-center"
+        >
+          <div
+            class="relative h-80 md:h-150 bg-gray-100 rounded-2xl dark:bg-neutral-800"
+          >
+            <img
+              class="absolute inset-0 size-full object-cover rounded-2xl"
+              src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Testimonials Image"
+            />
+          </div>
+          <!-- End Col -->
+          <div class="pt-10 md:p-10">
+            <h2 class="md:text-2xl py-4">Our Services</h2>
+
+            <ul
+              id="services-list"
+              class="grid grid-cols-1 md:grid-cols-2 gap-4"
+            ></ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Services -->
+
+      <!-- Contact Us -->
+      <div id="contact-us" class="bg-linear-to-b from-gray-200 to-white">
+        <div class="max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
+          <div class="mb-6 sm:mb-10 max-w-2xl text-center mx-auto"></div>
+
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-6 md:gap-8 lg:gap-12"
+          >
+            <div
+              class="aspect-w-16 aspect-h-6 lg:aspect-h-14 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800"
+            >
+              <img
+                class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
+                src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Contacts Image"
+              />
+            </div>
+            <!-- End Col -->
+
+            <div class="space-y-8 lg:space-y-16">
+              <div>
+                <h3 class="mb-5 font-semibold text-black dark:text-white">
+                  Our contacts
+                </h3>
+
+                <!-- Grid -->
+                <div
+                  class="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12"
+                >
+                  <div class="flex gap-4">
+                    <svg
+                      class="shrink-0 size-5 text-gray-500 dark:text-neutral-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+
+                    <div class="grow">
+                      <p class="text-sm text-gray-600 dark:text-neutral-400">
+                        Find us
+                      </p>
+                      <a
+                        id="contact-address"
+                        class="not-italic relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-1 before:w-full before:h-1 before:bg-yellow-400 hover:before:bg-black focus:outline-hidden focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
+                        href="https://www.google.com/maps?q=300+Bath+Street,+Tay+House,+Glasgow+G2+4JR"
+                      >
+                        300 Bath Street, Tay House<br />
+                        Glasgow G2 4JR
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <svg
+                      class="shrink-0 size-5 text-gray-500 dark:text-neutral-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"
+                      ></path>
+                      <path
+                        d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"
+                      ></path>
+                    </svg>
+
+                    <div class="grow">
+                      <p class="text-sm text-gray-600 dark:text-neutral-400">
+                        Email us
+                      </p>
+                      <p>
+                        <a
+                          id="contact-email"
+                          class="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-1 before:w-full before:h-1 before:bg-yellow-400 hover:before:bg-black focus:outline-hidden focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
+                          href="mailto:example@site.so"
+                        >
+                          hello@example.so
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <svg
+                      class="shrink-0 size-5 text-gray-500 dark:text-neutral-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      />
+                    </svg>
+
+                    <div class="grow">
+                      <p class="text-sm text-gray-600 dark:text-neutral-400">
+                        Call us
+                      </p>
+                      <p>
+                        <a
+                          class="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-1 before:w-full before:h-1 before:bg-yellow-400 hover:before:bg-black focus:outline-hidden focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
+                          href="mailto:example@site.so"
+                          id="contact-phone"
+                        >
+                          +44 222 777-000
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Grid -->
+              </div>
+            </div>
+            <!-- End Col -->
+          </div>
+        </div>
+      </div>
+      <!-- End Contact -->
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer
+      class="mt-auto border-t md:border-t-0 border-gray-200 dark:border-neutral-700"
+    >
+      <div class="w-full max-w-7xl py-10 md:pt-0 px-4 sm:px-6 lg:px-8 mx-auto">
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
+          <div class="text-center md:text-start">
+            <!-- Logo -->
+            <a
+              class="inline-block text-xl font-semibold text-black dark:text-white"
+              href="index.html"
+              id="business-name-footer"
+            >
+              Business Name
+            </a>
+            <!-- End Logo -->
+          </div>
+          <!-- End Col -->
+
+          <ul class="text-center">
+            <li
+              class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-black dark:before:text-white"
+            >
+              <a
+                class="inline-flex gap-x-2 text-sm text-black hover:text-gray-600 dark:text-white dark:hover:text-neutral-300"
+                href="#about"
+              >
+                About
+              </a>
+            </li>
+            <li
+              class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-black dark:before:text-white"
+            >
+              <a
+                class="inline-flex gap-x-2 text-sm text-black hover:text-gray-600 dark:text-white dark:hover:text-neutral-300"
+                href="#services"
+              >
+                Services
+              </a>
+            </li>
+            <li
+              class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-black dark:before:text-white"
+            >
+              <a
+                class="inline-flex gap-x-2 text-sm text-black hover:text-gray-600 dark:text-white dark:hover:text-neutral-300"
+                href="#header"
+              >
+                Back to top
+              </a>
+            </li>
+          </ul>
+          <!-- End Col -->
+
+          <!-- Social Brands -->
+          <div class="text-center md:text-end space-x-2">
+            <a
+              class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black hover:text-gray-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:text-neutral-400"
+              href="#"
+            >
+              <svg
+                class="shrink-0 size-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"
+                />
+              </svg>
+            </a>
+            <a
+              class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black hover:text-gray-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:text-neutral-400"
+              href="#"
+            >
+              <svg
+                class="shrink-0 size-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+                />
+              </svg>
+            </a>
+            <a
+              class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black hover:text-gray-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:text-neutral-400"
+              href="#"
+            >
+              <svg
+                class="shrink-0 size-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+                />
+              </svg>
+            </a>
+            <a
+              class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-black hover:text-gray-600 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:text-neutral-400"
+              href="#"
+            >
+              <svg
+                class="shrink-0 size-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z"
+                />
+              </svg>
+            </a>
+          </div>
+          <!-- End Social Brands -->
+        </div>
+        <!-- End Grid -->
+      </div>
+    </footer>
+    <!-- ========== END FOOTER ========== -->
+
+    <!-- JS Implementing Plugins -->
+
+    <!-- JS PLUGINS -->
+    <!-- Required plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/preline/dist/index.js"></script>
+
+    <!-- JS THIRD PARTY PLUGINS -->
+    <!-- Google Analytics. Global site tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-B73TDMXKF5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-B73TDMXKF5");
+    </script>
+  </body>
+</html>
