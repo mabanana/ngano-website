@@ -2,7 +2,8 @@
 const businessData = {
   siteTitle: "Ngano Immigration- Guiding Your Journey to Canada.",
   businessName: "Ngano Immigration",
-  tagline: "A new beginning, a new life",
+  tagline: "A New Beginning, A New Life",
+  aboutTitle: "About Us",
   aboutText:
     "We are certified Canadian Immigration consultant based in Toronto.\n\nWe are dedicated to helping individuals, families and businesses navigate the complex immigration process with confidence and peace of mind. Whether you seeking to study, work, reunite with your loved ones, or building a new life in Canada, we provide clear, personalised guidance tailored to your unique situation. We understand that every immigration journey is different, and we are committed to offering solutions that are both effective and compassionate.",
   servicesList: [
@@ -51,11 +52,16 @@ const businessData = {
     title: "Certified Canadian Immigration Consultant",
     bio: "Vivien Baderha is a certified Canadian Immigration Consultant. He holds a Bachelor of Art in International Studies and a degree in Human Resources Management from York University, Toronto. He further specialized in Canadian Immigration matters by completing a Graduate Diploma in Immigration and Citizenship Law at Queen’s University Canada. With a strong academic foundation and commitment to professional excellence, he brings knowledge, integrity and dedication to guiding clients through their Canadian immigration journey.",
   },
+  heroImage: "assets/heroImage.jpg",
+  logo: "assets/logo.png",
+  contactImage: "assets/contactImage.jpg",
+  aboutImage: "assets/aboutImage.jpg",
+  servicesImage: "assets/servicesImage.jpg",
 };
 
 const businessDataFr = {
   siteTitle: "Ngano Immigration - Guidant Votre Parcours vers le Canada.",
-  businessName: "Ngano Immigration Consulting Services",
+  businessName: "Ngano Immigration",
   tagline: "Un nouveau départ, une nouvelle vie",
   aboutText:
     "Nous sommes un consultant certifié canadien en immigration basé à Toronto.\n\nNous nous engageons à aider les individus, les familles et les entreprises à naviguer dans le processus d'immigration complexe avec confiance et tranquillité d'esprit. Que vous cherchiez à étudier, à travailler, à retrouver vos proches ou à construire une nouvelle vie au Canada, nous fournissons des conseils clairs et personnalisés adaptés à votre situation unique. Nous comprenons que chaque parcours d'immigration est différent et nous nous engageons à offrir des solutions à la fois efficaces et compatissantes.",

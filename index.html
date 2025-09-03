@@ -8,6 +8,55 @@
     </title>
     <script type="module" src="main.js"></script>
     <style>
+      body,
+      html {
+        font-family: "Inter", Arial, sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Inter", Arial, sans-serif;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 0.5em;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+      h4 {
+        font-size: 1.25rem;
+      }
+      p,
+      li,
+      blockquote {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.7;
+      }
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      .card-desc {
+        font-size: 1rem;
+        color: #555;
+      }
+      .card {
+        font-family: "Inter", Arial, sans-serif;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        padding: 2rem;
+      }
       @keyframes float {
         0%,
         100% {
@@ -107,7 +156,7 @@
     <!-- ========== HEADER ========== -->
     <header
       id="header"
-      class="flex flex-wrap lg:justify-start lg:flex-nowrap z-50 w-full py-7"
+      class="flex flex-wrap lg:justify-start lg:flex-nowrap z-50 w-full py-4"
     >
       <nav
         class="px-4 sm:px-6 lg:px-8 bg-transparent relative w-full flex flex-wrap md:flex-nowrap basis-full items-center justify-between py-2 ps-5 pe-2 md:py-0 mx-2 lg:mx-auto"
@@ -119,7 +168,9 @@
             href="index.html"
             aria-label="Preline"
           >
-            <h1 id="business-name" class="text-black">Business Name</h1>
+            <h1 id="business-name" class="text-black md:text-4xl pt-4">
+              <b>Business Name</b>
+            </h1>
           </a>
           <!-- End Logo -->
         </div>
@@ -154,6 +205,14 @@
               href="#contact-us"
               >Contact Us</a
             >
+            <!-- Language Toggle Button -->
+            <button
+              id="lang-toggle"
+              class="pe-3 ps-px sm:px-3 md:py-4 text-sm text-black hover:text-neutral-700 focus:outline-hidden focus:text-neutral-700"
+            >
+              Français
+            </button>
+            <!-- End Language Toggle Button -->
           </div>
         </div>
         <!-- End Collapse -->
@@ -166,12 +225,39 @@
       <!-- Hero -->
       <div class="px-4 sm:px-6 lg:px-8 pb-10 fade-in-up">
         <div
-          class="h-120 md:h-[80dvh] flex flex-col bg-[url('https://images.unsplash.com/photo-1462917882517-e150004895fa?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center bg-no-repeat rounded-2xl"
+          class="h-120 md:h-[80dvh] flex flex-col bg-cover bg-center bg-no-repeat rounded-2xl"
         >
           <div class="mt-auto w-2/3 md:max-w-lg ps-5 pb-5 md:ps-10 md:pb-10">
-            <h1 id="tagline" class="text-xl md:text-3xl lg:text-5xl text-white">
-              Bringing Art to everything
-            </h1>
+            <img
+              class="absolute inset-0 w-full h-full object-cover rounded-2xl z-0"
+              src="/assets/heroImage.jpg"
+              alt="Hero Image"
+              id="hero-image"
+            />
+            <div
+              class="relative h-full w-full flex items-center justify-center p-12 rounded-2xl justify-center"
+            >
+              <div
+                class="absolute inset-0 rounded-2xl"
+                style="
+                  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg');
+                  background-size: contain;
+                  background-position: center;
+                  opacity: 0.6;
+                  z-index: 0;
+                "
+              ></div>
+              <h1
+                id="tagline"
+                class="relative pb-0 text-2xl md:text-4xl lg:text-5xl text-white text-center justify-center drop-shadow-lg font-bold"
+                style="
+                  color: rgb(255, 255, 255);
+                  text-shadow: 3px 3px 0 rgb(0, 0, 0);
+                "
+              >
+                Bringing Art to everything
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -190,21 +276,24 @@
             >
               <img
                 class="absolute inset-0 size-full object-cover rounded-2xl"
-                src="https://images.unsplash.com/photo-1507914464562-6ff4ac29692f?q=80&w=768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/assets/aboutImage.jpg"
                 alt="Testimonials Image"
+                id="about-image"
               />
             </div>
             <!-- End Col -->
 
             <div class="pt-10 md:p-10">
               <blockquote class="max-w-4xl mx-auto">
-                <p class="mb-6 md:text-lg">
-                  A Family Tradition of Rich, Aromatic Coffee
-                </p>
+                <h2 id="about-title" class="md:text-4xl py-4">
+                  <span style="font-size: 2rem; font-weight: 700; color: #222"
+                    >A Family Tradition of Rich, Aromatic Coffee</span
+                  >
+                </h2>
 
                 <p
                   id="about-text"
-                  class="text-xl sm:text-2xl lg:text-3xl lg:leading-normal text-gray-800 dark:text-neutral-200"
+                  class="text-base sm:text-lg lg:text-xl lg:leading-normal text-gray-800 dark:text-neutral-200"
                 >
                   Coffee has the power to connect generations – whether it's
                   learning grandma's brewing techniques and trying to perfect
@@ -225,27 +314,18 @@
         class="py-15 lg:py-24 mx-auto bg-linear-to-b from-blue-100 to-white"
         id="services"
       >
-        <div
-          class="px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-20 grid grid-cols-1 md:grid-cols-2 md:items-center"
+        <h2
+          class="md:text-4xl py-4 text-center font-bold"
+          style="font-size: 2rem; color: #222"
         >
-          <div
-            class="relative h-80 md:h-150 bg-gray-100 rounded-2xl dark:bg-neutral-800"
-          >
-            <img
-              class="absolute inset-0 size-full object-cover rounded-2xl"
-              src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Testimonials Image"
-            />
-          </div>
-          <!-- End Col -->
-          <div class="pt-10 md:p-10">
-            <h2 class="md:text-2xl py-4">Our Services</h2>
+          Our Services
+        </h2>
 
-            <ul
-              id="services-list"
-              class="grid grid-cols-1 md:grid-cols-2 gap-4"
-            ></ul>
-          </div>
+        <div
+          class="container max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 justify-center gap-8 py-8"
+          id="services-list"
+        >
+          <!-- Add more cards as needed -->
         </div>
       </div>
       <!-- End Services -->
@@ -261,19 +341,54 @@
             <div
               class="aspect-w-16 aspect-h-6 lg:aspect-h-14 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800"
             >
+              <div>
+                <div
+                  class="bg-white dark:bg-neutral-900 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center h-full justify-center"
+                >
+                  <img
+                    src="/assets/owner.jpg"
+                    alt="Vivien Baderha"
+                    class="w-48 h-48 rounded-full mb-4 border-4 border-gray-200 dark:border-neutral-700 object-cover"
+                  />
+                  <h4 class="card-title mb-1 text-gray-800 dark:text-white">
+                    Vivien Baderha
+                  </h4>
+                  <p class="card-desc mb-2 text-gray-600 dark:text-neutral-400">
+                    Certified Canadian Immigration Consultant
+                  </p>
+                  <p class="card-desc text-gray-500 dark:text-neutral-300">
+                    Vivien Baderha is a certified Canadian Immigration
+                    Consultant. He holds a Bachelor of Arts in International
+                    Studies and a degree in Human Resources Management from York
+                    University, Toronto. He further specialized in Canadian
+                    Immigration matters by completing a Graduate Diploma in
+                    Immigration and Citizenship Law at Queen’s University
+                    Canada. With a strong academic foundation and commitment to
+                    professional excellence, he brings knowledge, integrity and
+                    dedication to guiding clients through their Canadian
+                    immigration journey.
+                  </p>
+                </div>
+              </div>
+              <!--
               <img
                 class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-                src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/assets/contactImage.jpg"
                 alt="Contacts Image"
+                id="contact-image"
               />
+              -->
             </div>
             <!-- End Col -->
 
             <div class="space-y-8 lg:space-y-16">
               <div>
-                <h3 class="mb-5 font-semibold text-black dark:text-white">
-                  Our contacts
-                </h3>
+                <h2
+                  class="md:text-4xl py-4 font-bold"
+                  style="font-size: 2rem; color: #222"
+                >
+                  Our Contact Information
+                </h2>
 
                 <!-- Grid -->
                 <div
