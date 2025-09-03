@@ -48,6 +48,19 @@ function renderContent(data, lang) {
   setText("business-name-footer", data.businessName);
   const langBtn = document.getElementById("lang-toggle");
   if (langBtn) langBtn.textContent = lang === "en" ? "Français" : "English";
+  document
+    .getElementById("contact-email")
+    .setAttribute("href", "mailto:" + data.contactInfo.email);
+  document
+    .getElementById("contact-phone")
+    .setAttribute("href", "tel:" + data.contactInfo.phone);
+  document
+    .getElementById("contact-address")
+    .setAttribute(
+      "href",
+      "https://www.google.com/maps?q=" +
+        encodeURIComponent(data.contactInfo.address)
+    );
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -89,9 +102,6 @@ function toggleLanguage() {
     setText("tagline", businessData.taglineFr);
     setText("about-title", businessData.aboutTitleFr);
     setText("about-text", businessData.aboutTextFr);
-    setText("contact-address", businessData.contactInfo.addressFr);
-    setText("contact-phone", businessData.contactInfo.phoneFr);
-    setText("contact-email", businessData.contactInfo.emailFr);
     setText("business-name-footer", businessData.businessNameFr);
   } else {
     setText("lang-toggle", "Français");
@@ -100,9 +110,6 @@ function toggleLanguage() {
     setText("tagline", businessData.tagline);
     setText("about-title", businessData.aboutTitle);
     setText("about-text", businessData.aboutText);
-    setText("contact-address", businessData.contactInfo.address);
-    setText("contact-phone", businessData.contactInfo.phone);
-    setText("contact-email", businessData.contactInfo.email);
     setText("business-name-footer", businessData.businessName);
   }
 }

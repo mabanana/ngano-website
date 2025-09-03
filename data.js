@@ -43,7 +43,7 @@ const businessData = {
     },
   ],
   contactInfo: {
-    address: "123 Queen St W, Toronto, ON",
+    address: "Toronto, ON",
     phone: "416-732-7226",
     email: "infos@nganoimmigration.ca",
   },
