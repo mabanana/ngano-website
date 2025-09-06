@@ -95,23 +95,33 @@ function toggleLanguage() {
   const newLang = currentLang === "en" ? "fr" : "en";
   document.documentElement.lang = newLang;
   // Update text content based on the new language
-  if (newLang === "fr") {
-    setText("lang-toggle", "English");
-    setText("page-title", businessData.siteTitleFr);
-    setText("business-name", businessData.businessNameFr);
-    setText("tagline", businessData.taglineFr);
-    setText("about-title", businessData.aboutTitleFr);
-    setText("about-text", businessData.aboutTextFr);
-    setText("business-name-footer", businessData.businessNameFr);
-  } else {
-    setText("lang-toggle", "Français");
-    setText("page-title", businessData.siteTitle);
-    setText("business-name", businessData.businessName);
-    setText("tagline", businessData.tagline);
-    setText("about-title", businessData.aboutTitle);
-    setText("about-text", businessData.aboutText);
-    setText("business-name-footer", businessData.businessName);
-  }
+  const data = newLang === "fr" ? businessDataFr : businessData;
+  setText("lang-toggle", data.langToggle);
+  setText("page-title", data.siteTitle);
+  setText("business-name", data.businessName);
+  setText("tagline", data.tagline);
+  setText("about-title", data.aboutTitle);
+  setText("about-text", data.aboutText);
+  setText("business-name-footer", data.businessNameFooter);
+  setText("nav-home", data.navHome);
+  setText("nav-about-us", data.navAboutUs);
+  setText("nav-services", data.navServices);
+  setText("nav-contact-us", data.navContactUs);
+  setText("services-title", data.servicesTitle);
+  setText("owner-name", data.ownerName);
+  setText("owner-title", data.ownerTitle);
+  setText("owner-bio", data.ownerBio);
+  setText("contact-title", data.contactTitle);
+  setText("contact-find-us", data.contactFindUs);
+  setText("contact-address", data.contactAddress);
+  setText("contact-email-title", data.contactEmailTitle);
+  setText("contact-email", data.contactEmail);
+  setText("contact-phone-title", data.contactPhoneTitle);
+  setText("contact-phone", data.contactPhone);
+  // Footer section
+  setText("footer-about-link", data.navAboutUs);
+  setText("footer-services-link", data.navServices);
+  setText("footer-back-to-top", data.footerBackToTop);
 }
 
 document
