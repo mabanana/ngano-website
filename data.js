@@ -16,20 +16,20 @@ const businessData = {
   navServices: "Services",
   navContactUs: "Contact Us",
   langToggle: "Français",
-  // ...existing code...
+  contactTitle: "Contact Us",
+  contactFindUs: "Find us",
+  contactPhoneTitle: "Call us",
+  contactEmailTitle: "Email us",
   servicesTitle: "Our Services",
   // Owner card
   ownerName: "Vivien Baderha",
   ownerTitle: "Regulated Canadian Immigration Consultant (RCIC)",
   ownerBio: [
     "Founder and Principal Consultant. With a strong academic and professional foundation, our principal consultant brings both expertise and dedication to every client file.",
-    " ",
     "• BA in International Studies – York University, Toronto, Canada.",
     "• Post-Degree Certificate in Human Resources Management – York University, Toronto, Canada.",
     "• Graduate Diploma in Immigration & Citizenship Law – Queen’s University, Kingston Canada.",
   ],
-  // Contact section
-  // ...existing code...
   servicesList: [
     {
       title: "Permanent Residence Applications",
@@ -91,9 +91,7 @@ const businessData = {
       description: "Commitment to ethical and professional practice.",
     },
   ],
-  // ...existing code...
   contactInfo: {
-    address: "Toronto, ON",
     phone: "416-732-7226",
     email: "infos@nganoimmigration.ca",
   },
@@ -129,8 +127,6 @@ const businessDataFr = {
   ownerTitle: "Consultant réglementé en immigration canadienne (CRIC)",
   ownerBio: [
     "Fondateur et consultant principal. Forte d’un solide parcours universitaire et professionnel, Vivien Baderha apporte une expertise approfondie et un engagement constant à chacun des dossiers qu’elle traite.",
-    "Elle est titulaire des diplômes suivants :",
-    " ",
     "• Baccalauréat en études internationales – Université York, Toronto (Canada)",
     "• Certificat post-diplôme en gestion des ressources humaines – Université York, Toronto (Canada)",
     "• Diplôme de 2e cycle en droit de l'immigration et de la citoyenneté – Université Queen’s, Kingston (Canada)",
@@ -196,8 +192,11 @@ const businessDataFr = {
         "Conseils pratiques sur la vie, l'étude et le travail au Canada.",
     },
   ],
+  contactTitle: "Contactez-nous",
+  contactFindUs: "Nous trouver",
+  contactPhoneTitle: "Téléphone",
+  contactEmailTitle: "Email",
   contactInfo: {
-    address: "Toronto, ON",
     phone: "416-732-7226",
     email: "infos@nganoimmigration.ca",
   },

@@ -42,7 +42,10 @@ function renderContent(data, lang) {
   const ownerBioEl = document.getElementById("owner-bio");
   if (ownerBioEl && Array.isArray(data.ownerBio)) {
     ownerBioEl.innerHTML = data.ownerBio
-      .map((item) => `<p style="text-align:left;padding:0 1em;">${item}</p>`)
+      .map(
+        (item) =>
+          `<p style="text-align:left;padding:0 1em;margin-bottom:1.5em;">${item}</p>`
+      )
       .join("");
   } else {
     setText("owner-bio", data.ownerBio);
