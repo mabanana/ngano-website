@@ -23,25 +23,169 @@ function setupCopyButton(buttonId, valueId) {
 }
 
 function renderContent(data, lang) {
+  // Navigation
+  setText("nav-home", data.navHome);
+  setText("nav-about-us", data.navAboutUs);
+  setText("nav-services", data.navServices);
+  setText("nav-contact-us", data.navContactUs);
+  // Section titles
+  setText("services-title", data.servicesTitle);
+  setText(
+    "why-choose-us-title",
+    data.whyChooseUsTitle ||
+      (lang === "fr" ? "Pourquoi nous choisir ?" : "Why Choose Us?")
+  );
+  setText("contact-title", data.contactTitle);
+  // Owner profile
+  setText("owner-name", data.ownerName);
+  setText("owner-title", data.ownerTitle);
+  const ownerBioEl = document.getElementById("owner-bio");
+  if (ownerBioEl && Array.isArray(data.ownerBio)) {
+    ownerBioEl.innerHTML = data.ownerBio
+      .map((item) => `<p style="text-align:left;padding:0 1em;">${item}</p>`)
+      .join("");
+  } else {
+    setText("owner-bio", data.ownerBio);
+  }
+  // Contact section
+  setText("contact-find-us", data.contactFindUs);
+  setText("contact-address", data.contactAddress);
+  setText("contact-email-title", data.contactEmailTitle);
+  setText("contact-email", data.contactEmail);
+  setText("contact-phone-title", data.contactPhoneTitle);
+  setText("contact-phone", data.contactPhone);
+  // Footer
+  setText("footer-about-link", data.footerAbout);
+  setText("footer-services-link", data.footerServices);
+  setText("footer-back-to-top", data.footerBackToTop);
+  // Render Why Choose Us under Our Services
+  const whyChooseUsSection = document.getElementById("why-choose-us-section");
+  let whyChooseHtml = "";
+  const isFr = lang === "fr";
+  const points =
+    data.whyChooseUs ||
+    (data.whyChooseUsPoints
+      ? data.whyChooseUsPoints.map((p) =>
+          p.title
+            ? {
+                title: p.title,
+                description: p.description,
+                svg: p.svg || "",
+              }
+            : { title: "", description: p, svg: "" }
+        )
+      : []);
+  if (points.length) {
+    whyChooseHtml = `<div class='py-6'>
+      <ul class='why-choose-list' style='display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;padding:0;margin:0;'>
+        ${points
+          .map(
+            (point) => `
+          <li class='why-choose-card' style='background:#fff;border-radius:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);padding:2rem;min-width:320px;max-width:540px;flex:1 1 220px;transition:transform 0.3s;list-style:none;cursor:pointer;display:flex;align-items:center;gap:1.2em;'>
+            <span style='display:flex;align-items:center;justify-content:center;min-width:40px;'>
+              ${
+                point.svg
+                  ? point.svg.replace(
+                      /<svg([^>]*)>/,
+                      `<svg$1 style="vertical-align:middle;color:#22c55e;">`
+                    )
+                  : ""
+              }
+            </span>
+            <div style="flex:1;height:100%;">
+              ${
+                point.title
+                  ? `<h4 class="card-title text-black" style="margin-bottom:0.5em;">${point.title}:</h4>`
+                  : ""
+              }
+              <span class="card-desc text-gray-500 dark:text-neutral-400">${
+                point.description
+              }</span>
+            </div>
+          </li>`
+          )
+          .join("")}
+      </ul>
+    </div>`;
+  }
+
+  // Render Our Services section as a horizontally scrollable row of uniform cards
   const servicesList = document.getElementById("services-list");
-  if (servicesList) {
-    servicesList.innerHTML = "";
-    data.servicesList.forEach((service) => {
-      servicesList.insertAdjacentHTML("beforeend", serviceCardHtml);
-      const currentCard = servicesList.lastElementChild;
-      const title = currentCard.querySelector("#service-title");
-      const description = currentCard.querySelector("#service-description");
-      if (title && description) {
-        title.textContent = service.title;
-        description.textContent = service.description;
-      }
+  let servicesHtml = "";
+  if (data.servicesList && data.servicesList.length) {
+    servicesHtml = `<div class='py-6' style='height:100%;'>
+      <div class='services-scroll' style='overflow-x:hidden;white-space:nowrap;padding-bottom:2em;height:100%;padding-left:2rem;padding-right:2rem;padding-top:2rem;'>
+      <ul class='services-list' style='display:inline-flex;gap:2rem;padding:0;margin:0;height:100%;'>
+      ${data.servicesList
+        .map(
+          (service) => `
+      <li class='service-card' style='background:#fff;border-radius:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);padding:2rem;min-width:430px;max-width:540px;flex:1 1 220px;transition:transform 0.3s;list-style:none;cursor:pointer;'>
+        <h4 class="card-title text-black" style="margin-bottom:0.5em;overflow-wrap:break-word;word-break:break-word;white-space:normal;" id="service-title">${service.title}</h4>
+        <p class="card-desc text-gray-500 dark:text-neutral-400" style="overflow-wrap:break-word;word-break:break-word;white-space:normal;" id="service-description">${service.description}</p>
+      </li>`
+        )
+        .join("")}
+      </ul>
+      </div>
+    </div>`;
+  }
+
+  // Make horizontal scroll on vertical wheel
+  setTimeout(() => {
+    const scrollEl = document.querySelector(".services-scroll");
+    if (scrollEl) {
+      scrollEl.addEventListener(
+        "wheel",
+        function (e) {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            scrollEl.scrollLeft += e.deltaY;
+          }
+        },
+        { passive: false }
+      );
+    }
+  }, 0);
+
+  if (whyChooseUsSection) {
+    whyChooseUsSection.innerHTML = whyChooseHtml;
+    // Add hover effect to cards
+    document.querySelectorAll(".why-choose-card").forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        card.style.transform = "scale(1.07)";
+        card.style.zIndex = 2;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "scale(1)";
+        card.style.zIndex = 1;
+      });
     });
   }
+  if (servicesList) {
+    servicesList.innerHTML = servicesHtml;
+    // Add hover effect to service cards
+    document.querySelectorAll(".service-card").forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        card.style.transform = "scale(1.07)";
+        card.style.zIndex = 2;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "scale(1)";
+        card.style.zIndex = 1;
+      });
+    });
+  }
+
   setText("page-title", data.siteTitle);
   setText("business-name", data.businessName);
   setText("tagline", data.tagline);
   setText("about-title", data.aboutTitle || "About Us");
-  setText("about-text", data.aboutText);
+  const aboutTextEl = document.getElementById("about-text");
+  if (aboutTextEl && Array.isArray(data.aboutText)) {
+    aboutTextEl.innerHTML = data.aboutText
+      .map((item) => `<p>${item}</p><br/>`)
+      .join("");
+  }
   setText("contact-address", data.contactInfo.address);
   setText("contact-phone", data.contactInfo.phone);
   setText("contact-email", data.contactInfo.email);
@@ -96,47 +240,9 @@ function toggleLanguage() {
   document.documentElement.lang = newLang;
   // Update text content based on the new language
   const data = newLang === "fr" ? businessDataFr : businessData;
-  setText("lang-toggle", data.langToggle);
-  setText("page-title", data.siteTitle);
-  setText("business-name", data.businessName);
-  setText("tagline", data.tagline);
-  setText("about-title", data.aboutTitle);
-  setText("about-text", data.aboutText);
-  setText("business-name-footer", data.businessNameFooter);
-  setText("nav-home", data.navHome);
-  setText("nav-about-us", data.navAboutUs);
-  setText("nav-services", data.navServices);
-  setText("nav-contact-us", data.navContactUs);
-  setText("services-title", data.servicesTitle);
-  setText("owner-name", data.ownerName);
-  setText("owner-title", data.ownerTitle);
-  setText("owner-bio", data.ownerBio);
-  setText("contact-title", data.contactTitle);
-  setText("contact-find-us", data.contactFindUs);
-  setText("contact-address", data.contactAddress);
-  setText("contact-email-title", data.contactEmailTitle);
-  setText("contact-email", data.contactEmail);
-  setText("contact-phone-title", data.contactPhoneTitle);
-  setText("contact-phone", data.contactPhone);
-  // Footer section
-  setText("footer-about-link", data.navAboutUs);
-  setText("footer-services-link", data.navServices);
-  setText("footer-back-to-top", data.footerBackToTop);
+  renderContent(data, newLang);
 }
 
 document
   .getElementById("lang-toggle")
   .addEventListener("click", toggleLanguage);
-
-const serviceCardHtml = `
-<div class="card glass services-hover flex flex-col border border-gray-200 shadow-xl rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-  <div>
-    <h3 id="service-title" class="card-title text-gray-800 dark:text-white mb-2">
-      Card title
-    </h3>
-    <p id="service-description" class="card-desc text-gray-500 dark:text-neutral-400">
-      Some quick example text to build on the card title and make up the bulk of the card's content.
-    </p>
-  </div>
-</div>
-`;

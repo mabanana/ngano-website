@@ -3,10 +3,12 @@ const businessData = {
   siteTitle: "Ngano Immigration- Guiding Your Journey to Canada.",
 
   businessName: "Ngano Immigration",
-  tagline: "A New Beginning, A New Life",
+  tagline: "New Horizons, New Beginnings.",
   aboutTitle: "About Us",
-  aboutText:
-    "We are certified Canadian Immigration consultant based in Toronto.\n\nWe are dedicated to helping individuals, families and businesses navigate the complex immigration process with confidence and peace of mind. Whether you seeking to study, work, reunite with your loved ones, or building a new life in Canada, we provide clear, personalised guidance tailored to your unique situation. We understand that every immigration journey is different, and we are committed to offering solutions that are both effective and compassionate.",
+  aboutText: [
+    "Welcome to Ngano Immigration. We provide trusted guidance for individuals and families navigating Canada’s immigration system. Our practice is dedicated to delivering clear, personalized, and ethical immigration solutions.",
+    "At Ngano Immigration, we are dedicated to guiding individuals and families through the complex Canadian immigration system with professionalism, integrity and care. We believe every client’s story is unique, and we work diligently to provide tailored strategies that turn aspirations into reality.",
+  ],
   ourServicesTitle: "Our Services",
   // Navigation and UI text
   navHome: "Home",
@@ -14,21 +16,20 @@ const businessData = {
   navServices: "Services",
   navContactUs: "Contact Us",
   langToggle: "Français",
-  businessNameFooter: "Business Name",
+  // ...existing code...
   servicesTitle: "Our Services",
   // Owner card
   ownerName: "Vivien Baderha",
-  ownerTitle: "Certified Canadian Immigration Consultant",
-  ownerBio:
-    "Vivien Baderha is a certified Canadian Immigration Consultant. He holds a Bachelor of Arts in International Studies and a degree in Human Resources Management from York University, Toronto. He further specialized in Canadian Immigration matters by completing a Graduate Diploma in Immigration and Citizenship Law at Queen’s University Canada. With a strong academic foundation and commitment to professional excellence, he brings knowledge, integrity and dedication to guiding clients through their Canadian immigration journey.",
+  ownerTitle: "Regulated Canadian Immigration Consultant (RCIC)",
+  ownerBio: [
+    "Founder and Principal Consultant. With a strong academic and professional foundation, our principal consultant brings both expertise and dedication to every client file.",
+    " ",
+    "• BA in International Studies – York University, Toronto, Canada.",
+    "• Post-Degree Certificate in Human Resources Management – York University, Toronto, Canada.",
+    "• Graduate Diploma in Immigration & Citizenship Law – Queen’s University, Kingston Canada.",
+  ],
   // Contact section
-  contactTitle: "Contact Us",
-  contactFindUs: "Find us",
-  contactAddress: "N/A",
-  contactEmailTitle: "Email us",
-  contactEmail: "hello@example.so",
-  contactPhoneTitle: "Call us",
-  contactPhone: "+44 222 777-000",
+  // ...existing code...
   servicesList: [
     {
       title: "Permanent Residence Applications",
@@ -90,7 +91,7 @@ const businessData = {
       description: "Commitment to ethical and professional practice.",
     },
   ],
-  contactUsTitle: "Contact Us",
+  // ...existing code...
   contactInfo: {
     address: "Toronto, ON",
     phone: "416-732-7226",
@@ -101,17 +102,6 @@ const businessData = {
     title: "Founder and Principal Consultant",
     bio: "Vivien Baderha is a certified Canadian Immigration Consultant. He holds a Bachelor of Art in International Studies and a degree in Human Resources Management from York University, Toronto. He further specialized in Canadian Immigration matters by completing a Graduate Diploma in Immigration and Citizenship Law at Queen’s University Canada. With a strong academic foundation and commitment to professional excellence, he brings knowledge, integrity and dedication to guiding clients through their Canadian immigration journey.",
   },
-  ownerBullets: [
-    "With a strong academic and professional foundation, our principal consultant brings both expertise and dedication to every client file.",
-    "BA in International Studies – York University, Toronto, Canada.",
-    "Post-Degree Certificate in Human Resources Management – York University, Toronto, Canada.",
-    "Graduate Diploma in Immigration & Citizenship Law – Queen’s University, Kingston Canada.",
-  ],
-  heroImage: "assets/heroImage.jpg",
-  logo: "assets/logo.png",
-  contactImage: "assets/contactImage.jpg",
-  aboutImage: "assets/aboutImage.jpg",
-  servicesImage: "assets/servicesImage.jpg",
   // Footer Section
   footerAbout: "About",
   footerServices: "Services",
@@ -121,10 +111,10 @@ const businessData = {
 const businessDataFr = {
   siteTitle: "Ngano Immigration - Guidant Votre Parcours vers le Canada.",
   businessName: "Ngano Immigration",
-  tagline: "Un nouveau départ, une nouvelle vie",
+  tagline: "Bienvenue chez Ngano Immigration",
   aboutTitle: "À propos de nous",
   aboutText:
-    "Nous sommes un consultant certifié canadien en immigration basé à Toronto.\n\nNous nous engageons à aider les individus, les familles et les entreprises à naviguer dans le processus d'immigration complexe avec confiance et tranquillité d'esprit. Que vous cherchiez à étudier, à travailler, à retrouver vos proches ou à construire une nouvelle vie au Canada, nous fournissons des conseils clairs et personnalisés adaptés à votre situation unique. Nous comprenons que chaque parcours d'immigration est différent et nous nous engageons à offrir des solutions à la fois efficaces et compatissantes.",
+    "Nous offrons un accompagnement de confiance aux personnes et aux familles souhaitant s’établir au Canada. Notre cabinet est résolument engagé à fournir des solutions d'immigration claires, personnalisées et éthiques, adaptées à chaque situation.\n\nChez Ngano Immigration, nous mettons notre expertise au service des individus et des familles pour les guider à travers le système d’immigration canadien, reconnu pour sa complexité.\n\nNotre approche repose sur trois piliers : professionnalisme, intégrité, et écoute active.\n\nParce que chaque parcours est unique, nous élaborons des stratégies sur mesure afin de transformer vos projets d’immigration en réalité concrète.",
   ourServicesTitle: "Nos services",
   // Navigation and UI text
   navHome: "Accueil",
@@ -136,17 +126,41 @@ const businessDataFr = {
   servicesTitle: "Nos services",
   // Owner card
   ownerName: "Vivien Baderha",
-  ownerTitle: "Consultant certifié canadien en Immigration et citoyenneté",
-  ownerBio:
-    "Vivien Baderha est un consultant certifié canadien en immigration. Il est titulaire d’un baccalauréat en études internationales et d’un diplôme en gestion des ressources humaines de l'université York à Toronto. Il s’est ensuite spécialisé en immigration canadienne en obtenant un diplôme d’études supérieures en droit de l’immigration et de la citoyenneté à l’université Queen’s au Canada. Grâce à une solide formation académique et un engagement envers l’excellence professionnelle, il accompagne ses clients avec compétence, intégrité et dévouement dans leur parcours d’immigration au Canada.",
-  // Contact section
-  contactTitle: "Contactez-nous",
-  contactFindUs: "Nous trouver",
-  contactAddress: "Toronto, ON",
-  contactEmailTitle: "Envoyez-nous un email",
-  contactEmail: "infos@nganoimmigration.ca",
-  contactPhoneTitle: "Appelez-nous",
-  contactPhone: "416-732-7226",
+  ownerTitle: "Consultant réglementé en immigration canadienne (CRIC)",
+  ownerBio: [
+    "Fondateur et consultant principal. Forte d’un solide parcours universitaire et professionnel, Vivien Baderha apporte une expertise approfondie et un engagement constant à chacun des dossiers qu’elle traite.",
+    "Elle est titulaire des diplômes suivants :",
+    " ",
+    "• Baccalauréat en études internationales – Université York, Toronto (Canada)",
+    "• Certificat post-diplôme en gestion des ressources humaines – Université York, Toronto (Canada)",
+    "• Diplôme de 2e cycle en droit de l'immigration et de la citoyenneté – Université Queen’s, Kingston (Canada)",
+  ],
+  whyChooseUsTitle: "Pourquoi nous choisir",
+  whyChooseUsPoints: [
+    {
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+      title: "Service sur mesure",
+      description: "Un service sur mesure, attentif à chaque détail",
+    },
+    {
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+      title: "Connaissance à jour",
+      description:
+        "Une connaissance toujours à jour des lois et politiques d’immigration canadiennes",
+    },
+    {
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+      title: "Accompagnement clair",
+      description:
+        "Un accompagnement clair, transparent et rassurant à chaque étape",
+    },
+    {
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+      title: "Pratique éthique",
+      description:
+        "Un engagement ferme envers une pratique professionnelle, respectueuse et éthique",
+    },
+  ],
   servicesList: [
     {
       title: "Demandes de résidence permanente",
@@ -182,7 +196,6 @@ const businessDataFr = {
         "Conseils pratiques sur la vie, l'étude et le travail au Canada.",
     },
   ],
-  contactUsTitle: "Contactez-nous",
   contactInfo: {
     address: "Toronto, ON",
     phone: "416-732-7226",
@@ -193,11 +206,6 @@ const businessDataFr = {
     title: "Consultant certifié canadien en Immigration et citoyenneté",
     bio: "Vivien Baderha est un consultant certifié canadien en immigration. Il est titulaire d’un baccalauréat en études internationales et d’un diplôme en gestion des ressources humaines de l'université York à Toronto. Il s’est ensuite spécialisé en immigration canadienne en obtenant un diplôme d’études supérieures en droit de l’immigration et de la citoyenneté à l’université Queen’s au Canada. Grâce à une solide formation académique et un engagement envers l’excellence professionnelle, il accompagne ses clients avec compétence, intégrité et dévouement dans leur parcours d’immigration au Canada.",
   },
-  heroImage: "assets/heroImage.jpg",
-  logo: "assets/logo.png",
-  contactImage: "assets/contactImage.jpg",
-  aboutImage: "assets/aboutImage.jpg",
-  servicesImage: "assets/servicesImage.jpg",
   // Footer Section
   footerAbout: "À propos",
   footerServices: "Services",
